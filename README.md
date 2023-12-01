@@ -2,6 +2,29 @@
 
 A curated list of papers and open-source resources focused on 3D Gaussian Splatting, intended to keep pace with the anticipated surge of research in the coming months. If you have any additions or suggestions, feel free to contribute. Additional resources like blog posts, videos, etc. are also welcome.
 
+## Table of contents
+- [Seminal Paper introducing 3D Gaussian Splatting](#seminal-paper-introducing-3d-gaussian-splatting)
+- [Dynamic 3D Gaussian Splatting](#dynamic-3d-gaussian-splatting)
+- [Diffusion 3D Gaussian Splatting](#diffusion-3d-gaussian-splatting)
+- [3D Gaussian Splatting Avatars](#3d-gaussian-splatting-avatars)
+- [3D Gaussian Splatting SLAM](#3d-gaussian-splatting-slam)
+- [3D Gaussian Splatting Mesh Extraction and Physics](#3d-gaussian-splatting-mesh-extraction-and-physics)
+- [Regularization and Optimization](#regularization-and-optimization)
+- [3D Gaussian Editing](#3d-gaussian-editing)
+- [3D Gaussian Rendering](#3d-gaussian-rendering)
+- [3D Gaussian Compression](#3d-gaussian-compression)
+- [Misc](#misc)
+- [Classic work](#classic-work)
+- [Open Source Implementations](#open-source-implementations)
+  * [Reference](#reference)
+  * [Unofficial Implementations](#unofficial-implementations)
+  * [2D Gaussian Splatting](#2d-gaussian-splatting)
+  * [Game Engines](#game-engines)
+  * [Viewers](#viewers)
+  * [Utilities](#utilities)
+- [Blog Posts](#blog-posts)
+- [Tutorial Videos](#tutorial-videos)
+- [Credits](#credits)
 <details span>
 <summary><b>Update Log:</b></summary>
 <br>
