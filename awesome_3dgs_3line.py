@@ -57,14 +57,11 @@ def write_markdown(
                     link = row[column_name]
                     if pd.notnull(link) and not link == "":
                         paper_links.append(f"[{emoji} {row[column_comment]}]({link})")
-                links_str = ", ".join(paper_links)
+                links_str = " | ".join(paper_links)
 
                 file.write(f'- <a name="{shortname}"></a>')
 
-                if title_as_link:
-                    authors = f"{row['Authors']}"
-                else:
-                    authors = f"*{row['Authors']}*"
+                authors = f"{row['Authors']}"
 
                 if title_as_link:
                     title = f"*[{row['Title']}]({row['📄 Paper']})*"
@@ -77,10 +74,10 @@ def write_markdown(
                     file.write(f"{authors},{list_entry_sep}{title},{list_entry_sep}")
 
                 if pd.notnull(row["Tag"]) and not row["Tag"] == "":
-                    file.write(f"{row['Tag']}, ")
+                    file.write(f"*{row['Tag']}*, ")
 
                 if pd.notnull(row["Year"]) and not row["Year"] == "":
-                    file.write(f"{int(row['Year'])}, ")
+                    file.write(f"*{int(row['Year'])}* | ")
                 file.write(f"{links_str}")
 
                 if (
