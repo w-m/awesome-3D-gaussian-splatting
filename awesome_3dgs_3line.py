@@ -6,7 +6,7 @@ import pandas as pd
 from awesome_3dgs_parse import parse_awesome_3dgs_md
 
 
-def write_markdown(file_name, list_entry_sep):
+def write_markdown(file_name, list_entry_sep, title_before_author=True):
 
     # Extract unique categories and sort them
     unique_categories = sorted(df["Category"].unique())
@@ -53,10 +53,15 @@ def write_markdown(file_name, list_entry_sep):
                         paper_links.append(f"[{emoji} {row[column_comment]}]({link})")
                 links_str = ", ".join(paper_links)
 
-                file.write(f"- <a name=\"{shortname}\"></a>{row['Authors']},")
-                file.write(list_entry_sep)
-                file.write(f"*[{row['Title']}]({row['📄 Paper']})*,")
-                file.write(list_entry_sep)
+                file.write(f'- <a name="{shortname}"></a>')
+
+                authors = f"{row['Authors']}"
+                title = f"*[{row['Title']}]({row['📄 Paper']})*"
+
+                if title_before_author:
+                    file.write(f"{title},{list_entry_sep}{authors},{list_entry_sep}")
+                else:
+                    file.write(f"{authors},{list_entry_sep}{title},{list_entry_sep}")
 
                 if pd.notnull(row["Tag"]) and not row["Tag"] == "":
                     file.write(f"{row['Tag']}, ")
@@ -70,7 +75,9 @@ def write_markdown(file_name, list_entry_sep):
 df = parse_awesome_3dgs_md()
 
 # three lines per paper
-write_markdown("awesome_3dgs_papers_3line.md", "  \n  ")
+write_markdown(
+    "awesome_3dgs_papers_3line.md", list_entry_sep="  \n  ", title_before_author=False
+)
 
 # one line per paper (most dense)
-write_markdown("awesome_3dgs_papers.md", " ")
+write_markdown("awesome_3dgs_papers.md", list_entry_sep=" ", title_before_author=True)
