@@ -38,7 +38,7 @@ def fetch_or_read_content(path_or_url):
             return None
 
 
-def parse_markdown_to_csv(
+def parse_awesome_3dgs_md(
     path_or_url="https://raw.githubusercontent.com/MrNeRF/awesome-3D-gaussian-splatting/main/README.md",
 ):
 
@@ -175,7 +175,7 @@ def parse_markdown_to_csv(
 if __name__ == "__main__":
 
     if sys.argv[1:]:
-        df = parse_markdown_to_csv(sys.argv[1])
+        df = parse_awesome_3dgs_md(sys.argv[1])
     else:
-        df = parse_markdown_to_csv()
+        df = parse_awesome_3dgs_md()
     df.to_csv("awesome_3dgs_papers.csv", index=False)

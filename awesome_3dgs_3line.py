@@ -3,6 +3,8 @@
 
 import pandas as pd
 
+from awesome_3dgs_parse import parse_awesome_3dgs_md
+
 
 def write_markdown(file_name, list_entry_sep):
 
@@ -55,16 +57,13 @@ def write_markdown(file_name, list_entry_sep):
                 file.write(list_entry_sep)
                 file.write(f"*[{row['Title']}]({row['📄 Paper']})*,")
                 file.write(list_entry_sep)
-                file.write(
-                    f"{int(row['Year']) if pd.notnull(row['Year']) else ''}, {links_str}"
-                )
+                if pd.notnull(row["Year"]) and not row["Year"] == "":
+                    file.write(f"{int(row['Year'])}, ")
+                file.write(f"{links_str}")
                 file.write("\n")
 
 
-a3dgs_gsheet_url = "https://docs.google.com/spreadsheets/d/1k9KcnI3DUb6BioFOQ_zg_0pUrOdL6n7oZ1N7nYUDbBE/edit?usp=sharing"
-csv_export_url = a3dgs_gsheet_url.replace("/edit?usp=sharing", "/export?format=csv")
-
-df = pd.read_csv(csv_export_url)
+df = parse_awesome_3dgs_md()
 
 # three lines per paper
 write_markdown("awesome_3dgs_papers_3line.md", "  \n  ")
