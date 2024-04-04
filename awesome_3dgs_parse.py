@@ -1,12 +1,49 @@
+# Quick and dirty parse of https://github.com/MrNeRF/awesome-3D-gaussian-splatting into a Pandas DataFrame
+
+# TODO: add support for multiple link entries. Some entries link two videos. The seminal paper has two paper links.
+
 import requests
 import pandas as pd
 import re
-
-import pandas as pd
-import re
+import sys
 
 
-def parse_markdown_to_csv(markdown_text):
+def fetch_or_read_content(path_or_url):
+    """
+    Fetches content from a URL or reads from a local file,
+    depending on what is provided.
+
+    Args:
+    - path_or_url (str): A URL or a local file path.
+
+    Returns:
+    - str: The content of the URL or file.
+    """
+    if path_or_url.startswith("http://") or path_or_url.startswith("https://"):
+        # It's a URL, use requests to fetch the content
+        try:
+            response = requests.get(path_or_url)
+            response.raise_for_status()  # Raises HTTPError for bad responses
+            return response.text
+        except requests.RequestException as e:
+            print(f"Failed to fetch the markdown content: {e}")
+            return None
+    else:
+        # It's a local file, open and read the file
+        try:
+            with open(path_or_url, "r", encoding="utf-8") as file:
+                return file.read()
+        except IOError as e:
+            print(f"Failed to read the file: {e}")
+            return None
+
+
+def parse_markdown_to_csv(
+    path_or_url="https://raw.githubusercontent.com/MrNeRF/awesome-3D-gaussian-splatting/main/README.md",
+):
+
+    markdown_text = fetch_or_read_content(path_or_url)
+
     # Initialize variables
     category = ""
     year = ""
@@ -131,32 +168,14 @@ def parse_markdown_to_csv(markdown_text):
     # Convert to DataFrame
     df = pd.DataFrame(data)
 
-    # Save to CSV
-    df.to_csv("awesome_3dgs_papers.csv", index=False)
+    return df
 
 
 # Example usage
 if __name__ == "__main__":
-    # URL of the markdown file
-    url = "https://raw.githubusercontent.com/MrNeRF/awesome-3D-gaussian-splatting/main/README.md"
 
-    # Fetch the markdown content
-    response = requests.get(url)
-    if response.status_code == 200:
-        markdown_text = response.text
-
-        # Continue with parsing and saving to CSV
-        df = parse_markdown_to_csv(markdown_text)
+    if sys.argv[1:]:
+        df = parse_markdown_to_csv(sys.argv[1])
     else:
-        print("Failed to fetch the markdown content.")
-
-    # # Load markdown text from a file or any source
-    # with open(
-    #     "/Users/morgenstern/dev/GitHub/awesome-3D-gaussian-splatting/README.md",
-    #     "r",
-    #     encoding="utf-8",
-    # ) as file:
-    #     markdown_text = file.read()
-
-    # # Parse and save to CSV
-    # parse_markdown_to_csv(markdown_text)
+        df = parse_markdown_to_csv()
+    df.to_csv("awesome_3dgs_papers.csv", index=False)
