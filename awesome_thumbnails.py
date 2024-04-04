@@ -6,6 +6,8 @@ from urllib.parse import urljoin
 from pathlib import Path
 from tqdm import tqdm
 
+from awesome_3dgs_parse import parse_awesome_3dgs_md
+
 
 def sanitize_filename(filename):
     """Sanitize the filename to avoid illegal characters."""
@@ -30,10 +32,7 @@ def find_image_url(page_url):
     return None
 
 
-a3dgs_gsheet_url = "https://docs.google.com/spreadsheets/d/1k9KcnI3DUb6BioFOQ_zg_0pUrOdL6n7oZ1N7nYUDbBE/edit?usp=sharing"
-csv_export_url = a3dgs_gsheet_url.replace("/edit?usp=sharing", "/export?format=csv")
-
-df = pd.read_csv(csv_export_url)
+df = parse_awesome_3dgs_md()
 
 # Create a directory for downloaded images
 images_dir = "3dgs_thumbs"
