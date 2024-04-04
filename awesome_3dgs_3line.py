@@ -57,6 +57,10 @@ def write_markdown(file_name, list_entry_sep):
                 file.write(list_entry_sep)
                 file.write(f"*[{row['Title']}]({row['📄 Paper']})*,")
                 file.write(list_entry_sep)
+
+                if pd.notnull(row["Tag"]) and not row["Tag"] == "":
+                    file.write(f"{row['Tag']}, ")
+
                 if pd.notnull(row["Year"]) and not row["Year"] == "":
                     file.write(f"{int(row['Year'])}, ")
                 file.write(f"{links_str}")
