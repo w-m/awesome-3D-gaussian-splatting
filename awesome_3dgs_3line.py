@@ -42,15 +42,15 @@ def write_markdown(file_name, list_entry_sep):
                 ).lower()
 
                 paper_links = []
-                for column_name, link_text in [
-                    ("📄 Paper", "PDF"),
-                    ("🌐 Project Page", "Project Page"),
-                    ("💻 Code", "Code"),
-                    ("🎥 Presentation", "Presentation"),
+                for emoji, column_name, column_comment in [
+                    ("📄", "📄 Paper", "📄 Comment"),
+                    ("🌐", "🌐 Project Page", "🌐 Comment"),
+                    ("💻", "💻 Code", "💻 Comment"),
+                    ("🎥", "🎥 Presentation", "🎥 Comment"),
                 ]:
                     link = row[column_name]
                     if pd.notnull(link) and not link == "":
-                        paper_links.append(f"[{link_text}]({link})")
+                        paper_links.append(f"[{emoji} {row[column_comment]}]({link})")
                 links_str = ", ".join(paper_links)
 
                 file.write(f"- <a name=\"{shortname}\"></a>{row['Authors']},")
