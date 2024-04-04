@@ -7,7 +7,11 @@ from awesome_3dgs_parse import parse_awesome_3dgs_md
 
 
 def write_markdown(
-    file_name, list_entry_sep, title_before_author=True, include_abstract=False
+    file_name,
+    list_entry_sep,
+    title_before_author=True,
+    include_abstract=False,
+    title_as_link=True,
 ):
 
     # Extract unique categories and sort them
@@ -57,8 +61,15 @@ def write_markdown(
 
                 file.write(f'- <a name="{shortname}"></a>')
 
-                authors = f"{row['Authors']}"
-                title = f"*[{row['Title']}]({row['📄 Paper']})*"
+                if title_as_link:
+                    authors = f"{row['Authors']}"
+                else:
+                    authors = f"*{row['Authors']}*"
+
+                if title_as_link:
+                    title = f"*[{row['Title']}]({row['📄 Paper']})*"
+                else:
+                    title = f"**{row['Title']}**"
 
                 if title_before_author:
                     file.write(f"{title},{list_entry_sep}{authors},{list_entry_sep}")
@@ -98,6 +109,15 @@ write_markdown(
     title_before_author=False,
     include_abstract=True,
 )
+
+write_markdown(
+    "awesome_3dgs_papers_nolink_abs.md",
+    list_entry_sep="  \n  ",
+    title_before_author=False,
+    include_abstract=True,
+    title_as_link=False,
+)
+
 
 # one line per paper (most dense)
 write_markdown("awesome_3dgs_papers.md", list_entry_sep=" ", title_before_author=True)
