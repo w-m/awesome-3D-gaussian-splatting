@@ -6,7 +6,9 @@ import pandas as pd
 from awesome_3dgs_parse import parse_awesome_3dgs_md
 
 
-def write_markdown(file_name, list_entry_sep, title_before_author=True):
+def write_markdown(
+    file_name, list_entry_sep, title_before_author=True, include_abstract=False
+):
 
     # Extract unique categories and sort them
     unique_categories = sorted(df["Category"].unique())
@@ -69,6 +71,17 @@ def write_markdown(file_name, list_entry_sep, title_before_author=True):
                 if pd.notnull(row["Year"]) and not row["Year"] == "":
                     file.write(f"{int(row['Year'])}, ")
                 file.write(f"{links_str}")
+
+                if (
+                    include_abstract
+                    and pd.notnull(row["Abstract"])
+                    and not row["Abstract"] == ""
+                ):
+                    file.write(f"{list_entry_sep}")
+                    file.write(
+                        f"<details><summary>Abstract</summary>{row['Abstract']}</details>"
+                    )
+
                 file.write("\n")
 
 
@@ -77,6 +90,13 @@ df = parse_awesome_3dgs_md()
 # three lines per paper
 write_markdown(
     "awesome_3dgs_papers_3line.md", list_entry_sep="  \n  ", title_before_author=False
+)
+
+write_markdown(
+    "awesome_3dgs_papers_full_abs.md",
+    list_entry_sep="  \n  ",
+    title_before_author=False,
+    include_abstract=True,
 )
 
 # one line per paper (most dense)
