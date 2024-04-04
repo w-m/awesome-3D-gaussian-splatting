@@ -49,7 +49,7 @@ def write_markdown(file_name, list_entry_sep):
                     ("🎥 Presentation", "Presentation"),
                 ]:
                     link = row[column_name]
-                    if pd.notnull(link):
+                    if pd.notnull(link) and not link == "":
                         paper_links.append(f"[{link_text}]({link})")
                 links_str = ", ".join(paper_links)
 
