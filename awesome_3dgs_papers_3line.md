@@ -228,25 +228,25 @@ ___
 - <a name="taoran2023gaussiandreamer"></a>Taoran Yi1, Jiemin Fang, Guanjun Wu1, Lingxi Xie, Xiaopeng Zhang,,  
   *[GaussianDreamer: Fast Generation from Text to 3D Gaussian Splatting with Point Cloud Priors](https://arxiv.org/pdf/2310.08529.pdf)*,  
   2023, [📄 Paper](https://arxiv.org/pdf/2310.08529.pdf), [🌐 Project Page](https://taoranyi.com/gaussiandreamer/), [💻 Code](https://github.com/hustvl/GaussianDreamer)
-- <a name="taoran2023gaussiandiffusion"></a>Taoran Yi1, Jiemin Fang, Guanjun Wu1, Lingxi Xie, Xiaopeng Zhang,,  
+- <a name="xinhai2023gaussiandiffusion"></a>Xinhai Li, Huaibin Wang, Kuo-Kun Tseng,  
   *[GaussianDiffusion: 3D Gaussian Splatting for Denoising Diffusion Probabilistic Models with Structured Noise](https://arxiv.org/pdf/2311.11221.pdf)*,  
   2023, [📄 Paper](https://arxiv.org/pdf/2311.11221.pdf)
-- <a name="taoran2023luciddreamer"></a>Taoran Yi1, Jiemin Fang, Guanjun Wu1, Lingxi Xie, Xiaopeng Zhang,,  
+- <a name="yixun2023luciddreamer"></a>Yixun Liang, Xin Yang, Jiantao Lin, Haodong Li, Xiaogang Xu, Yingcong Chen,  
   *[LucidDreamer: Towards High-Fidelity Text-to-3D Generation via Interval Score Matching](https://arxiv.org/pdf/2311.11284.pdf)*,  
   CVPR '24, 2023, [📄 Paper](https://arxiv.org/pdf/2311.11284.pdf), [💻 Code](https://github.com/EnVision-Research/LucidDreamer)
-- <a name="taoran2023luciddreamer"></a>Taoran Yi1, Jiemin Fang, Guanjun Wu1, Lingxi Xie, Xiaopeng Zhang,,  
+- <a name="jaeyoung2023luciddreamer"></a>Jaeyoung Chung, Suyoung Lee, Hyeongjin Nam, Jaerin Lee, Kyoung Mu Lee,  
   *[LucidDreamer: Domain-free Generation of 3D Gaussian Splatting Scenes](https://arxiv.org/pdf/2311.13384.pdf)*,  
   2023, [📄 Paper](https://arxiv.org/pdf/2311.13384.pdf), [🌐 Project Page](https://luciddreamer-cvlab.github.io/), [💻 Code](https://github.com/anonymous-luciddreamer/LucidDreamer)
-- <a name="taoran2023humangaussian"></a>Taoran Yi1, Jiemin Fang, Guanjun Wu1, Lingxi Xie, Xiaopeng Zhang,,  
+- <a name="xian2023humangaussian"></a>Xian Liu, Xiaohang Zhan, Jiaxiang Tang, Ying Shan, Gang Zeng, Dahua Lin, Xihui Liu, Ziwei Liu,  
   *[HumanGaussian: Text-Driven 3D Human Generation with Gaussian Splatting](https://arxiv.org/pdf/2311.17061.pdf)*,  
   CVPR '24, 2023, [📄 Paper](https://arxiv.org/pdf/2311.17061.pdf), [🌐 Project Page](https://alvinliu0.github.io/projects/HumanGaussian), [💻 Code](https://github.com/alvinliu0/HumanGaussian), [🎥 Short Presentation](https://www.youtube.com/watch?v=S3djzHoqPKY)
-- <a name="taoran2023cg3d"></a>Taoran Yi1, Jiemin Fang, Guanjun Wu1, Lingxi Xie, Xiaopeng Zhang,,  
+- <a name="alexander2023cg3d"></a>Alexander Vilesov, Pradyumna Chari, Achuta Kadambi,  
   *[CG3D: Compositional Generation for Text-to-3D](https://arxiv.org/pdf/2311.17907.pdf)*,  
   2023, [📄 Paper](https://arxiv.org/pdf/2311.17907.pdf), [🌐 Project Page](https://asvilesov.github.io/CG3D/), [🎥 Short Presentation](https://www.youtube.com/watch?v=FMAVeolsE7s)
-- <a name="taoran2023learn"></a>Taoran Yi1, Jiemin Fang, Guanjun Wu1, Lingxi Xie, Xiaopeng Zhang,,  
+- <a name="xiaofeng2023learn"></a>Xiaofeng Yang, Yiwen Chen, Cheng Chen, Chi Zhang, Yi Xu, Xulei Yang, Fayao Liu and Guosheng Lin,  
   *[Learn to Optimize Denoising Scores for 3D Generation - A Unified and Improved Diffusion Prior on NeRF and 3D Gaussian Splatting](https://arxiv.org/pdf/2312.04820.pdf)*,  
   2023, [📄 Paper](https://arxiv.org/pdf/2312.04820.pdf), [🌐 Project Page](https://yangxiaofeng.github.io/demo_diffusion_prior/), [💻 Code](https://github.com/yangxiaofeng/LODS)
-- <a name="taoran2023align"></a>Taoran Yi1, Jiemin Fang, Guanjun Wu1, Lingxi Xie, Xiaopeng Zhang,,  
+- <a name="andreas2023align"></a>Andreas Blattmann, Robin Rombach, Huan Ling, Tim Dockhorn, Seung Wook Kim, Sanja Fidler, Karsten Kreis,  
   *[Align Your Gaussians: Text-to-4D with Dynamic 3D Gaussians and Composed Diffusion Models](https://arxiv.org/pdf/2304.08818.pdf)*,  
   CVPR '24, 2023, [📄 Paper](https://arxiv.org/pdf/2304.08818.pdf), [🌐 Project Page](https://research.nvidia.com/labs/toronto-ai/AlignYourGaussians/)
 - <a name="jiawei2023dreamgaussian4d"></a>Jiawei Ren, Liang Pan, Jiaxiang Tang, Chi Zhang, Ang Cao, Gang Zeng, Ziwei Liu,  
