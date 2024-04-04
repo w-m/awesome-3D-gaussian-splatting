@@ -1,10 +1,7 @@
-import os
+# Reformats the list from https://github.com/MrNeRF/awesome-3D-gaussian-splatting into a denser format
+# See discussion: https://github.com/MrNeRF/awesome-3D-gaussian-splatting/issues/91
+
 import pandas as pd
-import requests
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-from pathlib import Path
-from tqdm import tqdm
 
 
 def write_markdown(file_name, list_entry_sep):
@@ -69,5 +66,8 @@ csv_export_url = a3dgs_gsheet_url.replace("/edit?usp=sharing", "/export?format=c
 
 df = pd.read_csv(csv_export_url)
 
+# three lines per paper
 write_markdown("awesome_3dgs_papers_3line.md", "  \n  ")
+
+# one line per paper (most dense)
 write_markdown("awesome_3dgs_papers.md", " ")
